@@ -1,7 +1,7 @@
 import random
-from lifxlan import Light
+from lifxlan import Light, BLUE, RED
 
-kelvin = 6500
+kelvin = 4500
 
 class Light(Light):
 
@@ -10,9 +10,11 @@ class Light(Light):
 
   def flame_on(self):
     print('flame_on')
+    self.set_color(RED, 3000)
 
   def blizzard(self):
     print('snap_freeze')
+    self.set_color(BLUE, 3000)
 
   def set_heat(self, intensity, magnitude):
     print(f"set_heat {intensity} : {magnitude}")
@@ -37,3 +39,10 @@ class Light(Light):
     self.set_color(colour, 3000)
     # green - cyan - blue - purple/blue
     # hue 128 -- 256
+
+  def set_white(self, magnitude):
+    print(f"set white {magnitude}")
+
+    brightness = 65535 * (magnitude/100)
+    colour = [58275, 0, brightness, kelvin]
+    self.set_color(colour, 3000)
