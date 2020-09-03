@@ -32,7 +32,7 @@ data = s.get_current_power_flow(site_id)
 #print(data)
 
 # When there's no flow to or from the grid nothing comes
-# back in the 'connections' array so initialze here
+# back in the 'connections' array so initialize here
 pwr_from_grid = 0
 pwr_to_grid   = 0
 
